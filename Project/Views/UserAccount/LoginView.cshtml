@@ -1,0 +1,47 @@
+﻿@model Project.Models.UserAccountModelcs
+
+@{
+    ViewData["Title"] = "LoginView";
+}
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="LoginView">
+            <section id="sectionid">
+
+                <div class="container1">
+
+                    <div class="inner1">
+                        <span id="spanid">Image</span>
+                    </div>
+
+                    <div class="inner2">
+                        <h4>Name</h4>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        
+                            <input asp-for="Email" placeholder="Username" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        
+                           
+                            <input asp-for="Password" type="password" placeholder="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        
+
+                        
+                          <input id="submitbtn" type="submit" value="Login" />
+                        
+                    </div>
+                </div>
+            </section>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
