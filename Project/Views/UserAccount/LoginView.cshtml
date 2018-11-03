@@ -1,24 +1,38 @@
 ﻿@model Project.Models.UserAccountModelcs
 
 @{
+    Layout = null;
     ViewData["Title"] = "LoginView";
 }
 
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Project</title>
 
-<hr />
-<div class="row">
-    <div class="col-md-4">
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+
+
         <form asp-action="LoginView">
             <section id="sectionid">
 
-                <div class="container1">
-
-                    <div class="inner1">
-                        <span id="spanid">Image</span>
-                    </div>
-
+               <img id ="logo" src="@Url.Content("~/Images/AugCartLogo.png")" alt="AugCart Logo" /> <br />
+                <div class="title">
+                    
+                    <h4>AugCart</h4>
+                </div>
                     <div class="inner2">
-                        <h4>Name</h4>
+                        
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         
                             <input asp-for="Email" placeholder="Username" class="form-control" />
@@ -33,14 +47,10 @@
                           <input id="submitbtn" type="submit" value="Login" />
                         
                     </div>
-                </div>
+               
             </section>
         </form>
-    </div>
-</div>
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

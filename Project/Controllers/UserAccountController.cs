@@ -14,6 +14,7 @@ namespace Project.Controllers
         }
         public IActionResult LoginView()
         {
+           
             return View();
         }
     }

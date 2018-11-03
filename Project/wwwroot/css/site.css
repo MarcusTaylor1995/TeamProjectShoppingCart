@@ -42,80 +42,60 @@ body {
     display: block;
 }
 .container1 {
-    
+    margin: 0 auto;
     width: 37vw;
     height: 27vh;
     position: relative;
 }
 
-.container1 .inner1 {
-        width: 50%;
-        height: 100%;
-        position: absolute;
-        left: 0;
-        text-align: center;
-        margin-top: 5%;
-    }
-
-.inner1 a {
-    display: inline-block;
-    width: 60%;
-    height: 4%;
-    margin-bottom: 11%;
-    padding: 4% 4%;
-    font-family: 'Bitter, Arial';
-    color: white;
-    text-decoration: none;
+.title {
+    margin: 0 auto;
+    margin-bottom: 15px;
+    background-color: #b9b5b5;
+    width: 18vw;
+    color: black;
+    height: 35px;
+    border-radius: 5px;
 }
 
-.container1 .inner2 {
-    width: 50%;
-    height: 100%;
-    position: absolute;
-    right: 0;
+.inner2 {
+    margin: 0 auto;
+    width: 18vw;
+    height: auto;
+    position: relative;
     background-color: white;
     text-align: center;
     border-radius: 5px;
     border: solid .5px;
     border-color: #e9e3e3;
     box-shadow: 2px 1px 0px 0px transparent;
+    padding-top: 20px;
 }
 
 #sectionid h4 {
-    font-size: 24pt;
-    font-family: 'Pacifico, Arial';
+    text-align: center;
+    font-size: 18pt;
+    font-family: 'Bitter, Arial';
     color: #0D0D0D;
-    margin-bottom: 35px;
-    margin-top: 6%;
+    vertical-align: central;
+    font-weight: lighter;
+    padding-top: 3px;
 }
 
 #sectionid {
-  
-   
     background-size: cover;
     width: 100vw;
     height: 100vh;
    
 }
 
-#txturname, #txtpassword {
-    font-size: 1.4vw;
-    padding-left: 3%;
-    font-family: 'Crete Round, Arial';
-    width: 80%;
-    height: 10%;
-    margin-bottom: 3%;
-    border: 0;
-    background-color: transparent;
-    border-bottom: 1px solid #4b4040;
-}
 
 #submitbtn {
     border-radius: 5px;
     width: 80%;
     height: 35px;
     margin-top: 2vh;
-    margin-bottom: 9vh;
+    margin-bottom: 30px;
     font-family: 'Crete Round, Arial';
     font-size: 13pt;
     background-color: #FDC97E;
@@ -141,4 +121,10 @@ body {
     text-align: center;
     vertical-align: middle;
     border-radius: 5px;
+
+}
+
+#logo{
+    display: block;
+    margin: 0 auto;
 }
