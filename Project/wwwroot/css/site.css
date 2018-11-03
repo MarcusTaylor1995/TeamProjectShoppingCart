@@ -148,7 +148,10 @@ body {
     border-bottom: solid .5px;
     border-color: #e9e3e3;
 }
-
+    .navbar li {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
     .navbar li:hover {
         border-radius: 5px;
         background-color: #b9b5b5;
@@ -172,8 +175,11 @@ body {
     border-left: solid .5px;
     border-color: #e9e3e3;
 }
-
+.navbar #logout {
+    width: 100%;
+}
 .navbar #logoutli {
+    padding: 0px;
     border-left: solid .5px;
     border-color: #e9e3e3;
 }
