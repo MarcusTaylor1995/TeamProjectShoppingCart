@@ -3,6 +3,7 @@ for details on configuring this project to bundle and minify static web assets. 
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: 'Bitter, Arial';
 }
 
 /* Wrapping element */
@@ -80,6 +81,7 @@ body {
     vertical-align: central;
     font-weight: lighter;
     padding-top: 3px;
+    max-width: 100%;
 }
 
 #sectionid {
@@ -149,8 +151,7 @@ body {
     border-color: #e9e3e3;
 }
     .navbar li {
-        padding-right: 30px;
-        padding-left: 30px;
+      
     }
     .navbar li:hover {
         border-radius: 5px;
@@ -183,4 +184,166 @@ body {
     border-left: solid .5px;
     border-color: #e9e3e3;
 }
+.container .around{
+  
+    height: auto;
+    margin-top: 30px;
+    border-style: solid;
+    border-width: .5px;
+    border-color: #e9e3e3;
+    display: block;
+ }
+
+.container .itemimage {
+    border-style: solid;
+    border-width: .5px;
+    border-color: #e9e3e3;
+    display: block;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-bottom: 10px;
    
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.itemimage #item {
+    max-height: 95%;
+    max-width: 95%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.itemimage .itemdescription {
+    max-height: 250px;
+    overflow-y: scroll;
+}
+
+.itemdescription ul{
+    list-style-type:none;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.itemdescription li {
+    margin-bottom: 30px;
+}
+
+.itemdescription #iname {
+    text-align: center;
+    font-size: 14pt;
+    font-weight: bold;
+}
+.itemdescription #iprice {
+    font-weight: bold;
+    font-size: 18pt;
+}
+
+.itemdescription #idescrip{
+    font-size: 12pt;
+}
+.hrline {
+    width: 95%;
+    margin: auto;
+}
+#cartbutton {
+    background-color: #FDC97E;
+    font-size: 12pt;
+    border-style: solid;
+    border-width: .5px;
+    border-color: #555;
+    border-radius: 5px;
+    float: right;
+    white-space: pre-wrap;
+    overflow: hidden;
+}
+    #cartbutton:hover {
+        background-color: #FE9000;
+        cursor: pointer;
+    }
+
+.searchbar {
+    border-style: solid;
+    border-radius: 5px;
+    border-width: .5px;
+    border-color: #e9e3e3;
+    margin-right: 5px;
+    margin-left: 100px;
+}
+
+    .searchbar:focus {
+        border-style: solid;
+        border-radius: 5px;
+        border-width: .5px;
+        border-color: #555;
+        outline: none;
+    }
+    .searchbar:active{
+        outline:none;
+    }
+.searchbtn {
+    font-size: 14pt;
+    border-style: solid;
+    border-width: .5px;
+    border-color: #555;
+    border-radius: 5px;
+    height: 35px;
+    background-color: #FDC97E;
+    white-space: pre-wrap;
+    overflow: hidden;
+}
+.searchbtn:hover {
+        background-color: #FE9000;
+        cursor: pointer;
+    }
+
+@media screen and (max-width: 950px) {
+    .searchbar {
+        width: 50%;
+    }
+
+    .searchbtn{
+        width: 25%;
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 992px) {
+    .searchbar {
+        width: 50%;
+    }
+
+    .searchbtn {
+        width: 25%;
+    }
+    .itemdescription ul {
+        max-height: none;
+        overflow-y: visible;
+    }
+}
+
+
+@media screen and (max-width: 479px) {
+    .searchbar {
+        margin-left:0;
+    }
+    .searchbtn {
+        font-size: 10pt;
+        width: 70px;
+    }
+   
+    #submitbtn{
+    
+       font-size: 10pt;
+    }
+
+  .itemdescription ul {
+        max-height: none;
+        overflow-y: visible;
+    }
+}

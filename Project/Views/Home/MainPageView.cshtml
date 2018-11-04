@@ -3,5 +3,65 @@
     ViewData["Title"] = "MainPageView";
 }
 
-<h2>MainPageView</h2>
+<br />
+<form asp-action="MainPageView">
+    <div class="row">
+        <div class="col-xs-12">
+            <input class="searchbar form-control col-xs-4" type="text" name="SearchString" placeholder="Search for anything">
+            <input class="searchbtn col-xs-1" value="Search" type="button" />
+        </div>
+    </div>
+</form>
+
+<div class="around">
+    <div class="row">
+        <div class="col-xs-12">
+
+            <div class="itemimage col-xs-2">
+                <img id="item" src="@Url.Content("~/Images/soccerball.png")" alt="AugCart Logo" />
+            </div>
+            <div class="itemdescription col-xs-9">
+                <ul>
+                    <li id="iname">Item's Name</li>
+                    <li id="idescrip">
+                        <p>This is just an example. This is just an example. This is just an example. This is just an example. This is just an example. This is just an example</p>
+                        <p>This is just an example. This is just an example. This is just an example. This is just an example. This is just an example. This is just an example</p>                    
+                    </li>
+                    <li id="iprice">$999.99 <input id="cartbutton" type="button" value="Add to Cart" /></li>
+                </ul>
+            </div>
+            <br />
+
+        </div>
+
+    </div>
+    <div class="hrline row">
+        <hr />
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+
+            <div class="itemimage col-xs-2">
+                <img id="item" src="@Url.Content("~/Images/soccerball.png")" alt="AugCart Logo" />
+            </div>
+            <div class="itemdescription col-xs-9">
+                <ul>
+                    <li id="iname">Item's Name</li>
+                    <li id="idescrip">
+                        <p>This is just an example. This is just an example. This is just an example. This is just an example. This is just an example. This is just an example</p>
+                        <p>This is just an example. This is just an example. This is just an example. This is just an example. This is just an example. This is just an example</p>
+                    </li>
+                    <li id="iprice">$999.99 <input id="cartbutton" type="button" value="Add to Cart" /></li>
+                </ul>
+            </div>
+            <br />
+
+        </div>
+
+    </div>
+    <div class="hrline row">
+        <hr />
+    </div>
+</div>
 
