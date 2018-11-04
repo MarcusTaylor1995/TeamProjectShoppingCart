@@ -67,7 +67,7 @@ namespace Project
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=UserAccount}/{action=LoginView}/{id?}");
             });
         }
     }
