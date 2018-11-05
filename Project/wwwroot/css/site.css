@@ -253,7 +253,6 @@ body {
     margin: auto;
 }
 #cartbutton {
-    background-color: #FDC97E;
     font-size: 12pt;
     border-style: solid;
     border-width: .5px;
@@ -262,6 +261,10 @@ body {
     float: right;
     white-space: pre-wrap;
     overflow: hidden;
+    background: #FDC97E url(../images/cartthumb2.png) no-repeat left;
+    padding-left: 30px;
+    height: 30px;
+   
 }
     #cartbutton:hover {
         background-color: #FE9000;
