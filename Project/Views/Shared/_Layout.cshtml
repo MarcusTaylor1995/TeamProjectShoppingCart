@@ -32,8 +32,8 @@
                    
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li id="augli"><a asp-area="" asp-controller="UserAccount" asp-action="LoginView">AugCart <img id="logothumb" src="@Url.Content("~/Images/cartthumb.png")" alt="AugCart Logo" /></a></li>
-                    <li><a asp-area="" asp-controller="UserAccount" asp-action="LoginView">Item's Search</a></li>
+                    <li id="augli"><a asp-area="" asp-controller="Home" asp-action="CartView">AugCart <img id="logothumb" src="@Url.Content("~/Images/cartthumb.png")" alt="AugCart Logo" /></a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="MainPageView">Item's Search</a></li>
                     <li><a asp-area="" asp-controller="UserAccount" asp-action="LoginView">Orders History</a></li>
                    
                 </ul>
@@ -50,10 +50,7 @@
 
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - Project</p>
-        </footer>
+        
     </div>
 
     <environment include="Development">

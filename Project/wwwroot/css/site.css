@@ -306,7 +306,7 @@ body {
         cursor: pointer;
     }
 
-@media screen and (max-width: 950px) {
+@media screen and (min-width:993px) and (max-width: 950px) {
     .searchbar {
         width: 50%;
     }
@@ -327,6 +327,10 @@ body {
     .itemdescription ul {
         max-height: none;
         overflow-y: visible;
+    }
+
+    .container #checkoutbox {
+        margin-left: 2%;
     }
 }
 
@@ -349,4 +353,116 @@ body {
         max-height: none;
         overflow-y: visible;
     }
+  .container #checkoutbox{
+      margin-left: 2%;
+      
+  }
+
+
+   
 }
+
+.container .around1 {
+    height: auto;
+    border-style: solid;
+    border-width: .5px;
+    border-color: #e9e3e3;
+    border-left: none;
+    border-right: none;
+    display: block;
+}
+.container .around2 {
+    height: auto;
+    border-style: solid;
+    border-width: .5px;
+    border-color: #e9e3e3;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    display: block;
+}
+.container .itemimage1 {
+    display: block;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+.itemimage1 #item1 {
+    max-height: 95%;
+    max-width: 95%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+#price1 {
+    display:inline-block;
+    text-align: center;
+    margin-left: 11%;
+}
+
+#priceheading {
+    display: inline-block;
+    margin-left: 13%;
+}
+#quantityheading {
+    display: inline-block;
+    margin-left: 30%;
+}
+.itemdescription #iname1 {
+    display:inline-block;
+    margin-left: 1%;
+}
+#quantity1 {
+    display: inline-block;
+    margin-left: 35%;
+    
+}
+#nameheading{
+    display:inline-block;
+    margin-left: 1%;
+}
+
+#checkoutbox {
+    margin: auto;
+    margin-top: 30px;
+    margin-left: 72%;
+    width: 200px;
+    height: 60px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #e9e3e3;
+    border-width: .5px;
+    background-color: #f2eeee;
+    text-align: center;
+}
+#checkoutbox h4{
+    margin: auto;
+}
+
+
+#checkoutbutton {
+    font-size: 12pt;
+    border-style: solid;
+    border-width: .5px;
+    border-color: #555;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    overflow: hidden;
+    height: 30px;
+    background-color:#FDC97E;
+    width: 100px;
+}
+
+    #checkoutbutton:hover {
+        background-color: #FE9000;
+        cursor: pointer;
+    }

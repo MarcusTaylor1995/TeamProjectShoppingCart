@@ -45,5 +45,11 @@ namespace Project.Controllers
 
             return View();
         }
+
+        public IActionResult CartView()
+        {
+
+            return View();
+        }
     }
 }
