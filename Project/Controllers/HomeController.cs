@@ -4,12 +4,18 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Project.Data;
 using Project.Models;
 
 namespace Project.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext _context;
+        public HomeController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             return View();
@@ -42,8 +48,13 @@ namespace Project.Controllers
 
         public IActionResult MainPageView()
         {
-
-            return View();
+            
+            OrderItemViewModel model = new OrderItemViewModel();
+            
+            var items = _context.OrderItems;
+            model.OrderItems.AddRange(items);
+    
+            return View(model);
         }
 
         public IActionResult CartView()

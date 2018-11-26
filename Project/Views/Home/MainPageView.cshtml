@@ -1,4 +1,4 @@
-﻿
+﻿@model  Project.Models.OrderItemViewModel
 @{
     ViewData["Title"] = "MainPageView";
 }
@@ -12,6 +12,8 @@
     </div>
 </form>
 <div class="around">
+    @foreach (var item in Model.OrderItems)
+    {
     <div class="row">
         <div class="col-xs-12">
             <div class="itemimage col-xs-2">
@@ -19,12 +21,12 @@
             </div>
             <div class="itemdescription col-xs-9">
                 <ul>
-                    <li id="iname">Item's Name</li>
+                    <li id="iname">@item.Name</li>
                     <li id="idescrip">
-                        <p>This is just an example. This is just an example. This is just an example. This is just an example. This is just an example. This is just an example</p>
-                        <p>This is just an example. This is just an example. This is just an example. This is just an example. This is just an example. This is just an example</p>
+                        <p>@item.Description</p>
+                        
                     </li>
-                    <li id="iprice">$999.99 <input id="cartbutton" type="button" value="Add to Cart" /></li>
+                    <li id="iprice">@item.Price <input id="cartbutton" type="button" value="Add to Cart" /></li>
                 </ul>
             </div>
             <br />
@@ -33,25 +35,5 @@
     <div class="hrline row">
         <hr />
     </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="itemimage col-xs-2">
-                <img id="item" src="@Url.Content("~/Images/soccerball.png")" alt="Soccer Ball" />
-            </div>
-            <div class="itemdescription col-xs-9">
-                <ul>
-                    <li id="iname">Item's Name</li>
-                    <li id="idescrip">
-                        <p>This is just an example. This is just an example. This is just an example. This is just an example. This is just an example. This is just an example</p>
-                        <p>This is just an example. This is just an example. This is just an example. This is just an example. This is just an example. This is just an example</p>
-                    </li>
-                    <li id="iprice">$999.99 <input id="cartbutton" type="button" value="Add to Cart" /></li>
-                </ul>
-            </div>
-            <br />
-        </div>
-    </div>
-    <div class="hrline row">
-        <hr />
-    </div>
-</div>
+    }
+   

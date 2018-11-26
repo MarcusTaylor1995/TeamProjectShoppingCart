@@ -9,6 +9,9 @@ namespace Project.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
