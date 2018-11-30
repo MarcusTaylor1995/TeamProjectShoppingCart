@@ -2,7 +2,7 @@
 
 namespace Project.Data.Migrations
 {
-    public partial class AddedCustomEntities2 : Migration
+    public partial class EntityAdded : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

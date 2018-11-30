@@ -186,16 +186,37 @@ namespace Project.Data.Migrations
 
             modelBuilder.Entity("Project.Models.Cart", b =>
                 {
-                    b.Property<int>("CartId")
+                    b.Property<int>("RecordId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name")
-                        .IsRequired();
+                    b.Property<string>("CartId");
 
-                    b.HasKey("CartId");
+                    b.Property<string>("CartName");
+
+                    b.Property<int>("Count");
+
+                    b.Property<int>("OrderItemId");
+
+                    b.HasKey("RecordId");
+
+                    b.HasIndex("OrderItemId")
+                        .IsUnique();
 
                     b.ToTable("Carts");
+                });
+
+            modelBuilder.Entity("Project.Models.Order", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("Total");
+
+                    b.HasKey("OrderId");
+
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("Project.Models.OrderItem", b =>
@@ -203,8 +224,6 @@ namespace Project.Data.Migrations
                     b.Property<int>("OrderItemId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CartId");
 
                     b.Property<string>("Category")
                         .IsRequired();
@@ -221,13 +240,11 @@ namespace Project.Data.Migrations
 
                     b.Property<int>("Price");
 
-                    b.Property<int>("ProductId");
+                    b.Property<int?>("ProductId");
 
                     b.Property<int>("Quantity");
 
                     b.HasKey("OrderItemId");
-
-                    b.HasIndex("CartId");
 
                     b.HasIndex("ProductId");
 
@@ -312,17 +329,19 @@ namespace Project.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("Project.Models.Cart", b =>
+                {
+                    b.HasOne("Project.Models.OrderItem", "OrderItem")
+                        .WithOne("Cart")
+                        .HasForeignKey("Project.Models.Cart", "OrderItemId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("Project.Models.OrderItem", b =>
                 {
-                    b.HasOne("Project.Models.Cart")
+                    b.HasOne("Project.Models.Product", "Product")
                         .WithMany("Items")
-                        .HasForeignKey("CartId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Project.Models.Product")
-                        .WithMany("Items")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ProductId");
                 });
 #pragma warning restore 612, 618
         }

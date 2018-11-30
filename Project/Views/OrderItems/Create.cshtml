@@ -13,14 +13,6 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="ProductId" class="control-label"></label>
-                <select asp-for="ProductId" class ="form-control" asp-items="ViewBag.ProductId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="CartId" class="control-label"></label>
-                <select asp-for="CartId" class ="form-control" asp-items="ViewBag.CartId"></select>
-            </div>
-            <div class="form-group">
                 <label asp-for="Quantity" class="control-label"></label>
                 <input asp-for="Quantity" class="form-control" />
                 <span asp-validation-for="Quantity" class="text-danger"></span>
@@ -47,7 +39,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="Category" class="control-label"></label>
-                <input asp-for="Category" class="form-control" />
+                <select class="form-control valid" data-val="true" data-val-required="The Category  field is required." id="Category" name="Category"  aria-invalid="false">
+                    <option value="Sports">Sports</option>
+                    <option value="Technology">Technology</option>
+                    <option value="School">School</option>
+                </select>
                 <span asp-validation-for="Category" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -8,5 +8,6 @@ namespace Project.Models
     public class OrderItemViewModel
     {
         public List<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+        public string Category { get; set; }
     }
 }

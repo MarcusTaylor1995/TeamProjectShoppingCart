@@ -247,6 +247,7 @@ body {
 
 .itemdescription #idescrip{
     font-size: 12pt;
+    height: 125px;
 }
 .hrline {
     width: 95%;
@@ -270,7 +271,12 @@ body {
         background-color: #FE9000;
         cursor: pointer;
     }
-
+    #quantityinput{
+        margin-left: 10px;
+        width: 50px;
+        font-size: 12pt;
+        font-weight: normal;
+    }
 .searchbar {
     border-style: solid;
     border-radius: 5px;
@@ -290,16 +296,38 @@ body {
     .searchbar:active{
         outline:none;
     }
-.searchbtn {
-    font-size: 14pt;
+
+.container #selectcat {
+    border-style: solid;
+    border-radius: 5px;
+    border-width: .5px;
+    border-color: #e9e3e3;
+    margin-right: 5px;
+    margin-left: 100px;
+}
+.container #selectcat:focus {
+    border-style: solid;
+    border-radius: 5px;
+    border-width: .5px;
+    border-color: #555;
+    outline: none;
+}
+
+.container #selectcat:active {
+    outline: none;
+}
+.container .searchbtn {
+    font-size: 12pt;
     border-style: solid;
     border-width: .5px;
     border-color: #555;
     border-radius: 5px;
-    height: 35px;
+    height: 25px;
     background-color: #FDC97E;
     white-space: pre-wrap;
     overflow: hidden;
+    width: 70px;
+    margin-left: 20px;
 }
 .searchbtn:hover {
         background-color: #FE9000;
@@ -312,7 +340,7 @@ body {
     }
 
     .searchbtn{
-        width: 25%;
+        width: 70px;
     }
 }
 
@@ -322,7 +350,7 @@ body {
     }
 
     .searchbtn {
-        width: 25%;
+        width: 70px;
     }
     .itemdescription ul {
         max-height: none;

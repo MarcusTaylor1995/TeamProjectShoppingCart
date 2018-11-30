@@ -2,7 +2,7 @@
 
 namespace Project.Data.Migrations
 {
-    public partial class AddedCustomEntities1 : Migration
+    public partial class forreal12 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

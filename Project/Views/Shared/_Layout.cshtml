@@ -29,8 +29,8 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><img id="logo" src="@Url.Content("~/Images/LogoNoBg.png")" alt="AugCart Logo" /></li>
-                        <li id="augli"><a asp-area="" asp-controller="Home" asp-action="CartView">AugCart <img id="logothumb" src="@Url.Content("~/Images/cartthumb.png")" alt="AugCart Logo" /></a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="MainPageView">Item's Search</a></li>
+                        <li id="augli"><a asp-area="" asp-controller="Cart" asp-action="Index">AugCart <img id="logothumb" src="@Url.Content("~/Images/cartthumb.png")" alt="AugCart Logo" /></a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="MainPageView">All Items</a></li>
                         <li><a asp-area="" asp-controller="UserAccount" asp-action="LoginView">Orders History</a></li>
 
                     </ul>
@@ -43,6 +43,7 @@
     </nav>
     <partial name="_CookieConsentPartial" />
     <div class="container body-content">
+      
         @RenderBody()
 
     </div>

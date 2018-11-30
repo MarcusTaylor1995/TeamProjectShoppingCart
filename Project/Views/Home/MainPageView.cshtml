@@ -1,39 +1,60 @@
-﻿@model  Project.Models.OrderItemViewModel
+﻿@model Project.Models.OrderItemViewModel
 @{
     ViewData["Title"] = "MainPageView";
 }
 <br />
 <form asp-action="MainPageView">
     <div class="row">
-        <div class="col-xs-12">
-            <input class="searchbar form-control col-xs-4" type="text" name="SearchString" placeholder="Search for anything">
-            <input class="searchbtn col-xs-1" value="Search" type="button" />
+        <div class="col-xs-12" style="text-align: center">
+
+            @{var listItems = new List<SelectListItem>
+                             {
+                              new SelectListItem { Text = "School", Value="School"},
+                              new SelectListItem { Text = "Sports", Value="Sports" },
+                              new SelectListItem { Text = "Technology", Value="Technology" },
+                             };
+            }
+            @Html.DropDownList("Reports", new SelectList(listItems, "Value", "Text"), "Select Category", new { onchange = "document.location.href = '/Home/' + this.options[this.selectedIndex].value;", style = "background-color:#FDC97E;border-radius:5px; font-weight: bold;" })
         </div>
     </div>
 </form>
-<div class="around">
-    @foreach (var item in Model.OrderItems)
-    {
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="itemimage col-xs-2">
-                <img id="item" src="@Url.Content("~/Images/soccerball.png")" alt="Soccer Ball" />
+@foreach (var item in Model.OrderItems)
+{
+
+<form asp-action="Buy" asp-controller="Cart" method="post">
+    <div class="around">
+
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="itemimage col-xs-2">
+                    <img id="item" src="@Url.Content(item.Image)" alt="Soccer Ball" />
+                </div>
+                <div class="itemdescription col-xs-9">
+                    <ul>
+                        <li id="iname">@item.Name </li>
+
+                        <li id="idescrip">
+                            <p>@item.Description</p>
+                            <input type="hidden" name="id" value="@item.OrderItemId" />
+                        </li>
+                        <li id="iprice">$@String.Format("{0:F}", item.Price) <input id="quantityinput" name="quantity" type="number" min="1" max="100" value="1" /> <button id="cartbutton" type="submit"> Add to Cart </button>
+                        </li>
+                    </ul>
+                </div>
+                <br />
             </div>
-            <div class="itemdescription col-xs-9">
-                <ul>
-                    <li id="iname">@item.Name</li>
-                    <li id="idescrip">
-                        <p>@item.Description</p>
-                        
-                    </li>
-                    <li id="iprice">@item.Price <input id="cartbutton" type="button" value="Add to Cart" /></li>
-                </ul>
-            </div>
-            <br />
         </div>
+
     </div>
     <div class="hrline row">
         <hr />
+
     </div>
-    }
-   
+    
+</form>
+
+}
+
+
+

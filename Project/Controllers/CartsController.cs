@@ -22,7 +22,8 @@ namespace Project.Controllers
         // GET: Carts
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Carts.ToListAsync());
+            var applicationDbContext = _context.Carts.Include(c => c.OrderItem);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Carts/Details/5
@@ -34,7 +35,8 @@ namespace Project.Controllers
             }
 
             var cart = await _context.Carts
-                .FirstOrDefaultAsync(m => m.CartId == id);
+                .Include(c => c.OrderItem)
+                .FirstOrDefaultAsync(m => m.RecordId == id);
             if (cart == null)
             {
                 return NotFound();
@@ -46,6 +48,7 @@ namespace Project.Controllers
         // GET: Carts/Create
         public IActionResult Create()
         {
+            ViewData["OrderItemId"] = new SelectList(_context.OrderItems, "OrderItemId", "Category");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CartId,Name")] Cart cart)
+        public async Task<IActionResult> Create([Bind("RecordId,CartId,Count,OrderItemId")] Cart cart)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace Project.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["OrderItemId"] = new SelectList(_context.OrderItems, "OrderItemId", "Category", cart.OrderItemId);
             return View(cart);
         }
 
@@ -78,6 +82,7 @@ namespace Project.Controllers
             {
                 return NotFound();
             }
+            ViewData["OrderItemId"] = new SelectList(_context.OrderItems, "OrderItemId", "Category", cart.OrderItemId);
             return View(cart);
         }
 
@@ -86,9 +91,9 @@ namespace Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CartId,Name")] Cart cart)
+        public async Task<IActionResult> Edit(int id, [Bind("RecordId,CartId,Count,OrderItemId")] Cart cart)
         {
-            if (id != cart.CartId)
+            if (id != cart.RecordId)
             {
                 return NotFound();
             }
@@ -102,7 +107,7 @@ namespace Project.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CartExists(cart.CartId))
+                    if (!CartExists(cart.RecordId))
                     {
                         return NotFound();
                     }
@@ -113,6 +118,7 @@ namespace Project.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["OrderItemId"] = new SelectList(_context.OrderItems, "OrderItemId", "Category", cart.OrderItemId);
             return View(cart);
         }
 
@@ -125,7 +131,8 @@ namespace Project.Controllers
             }
 
             var cart = await _context.Carts
-                .FirstOrDefaultAsync(m => m.CartId == id);
+                .Include(c => c.OrderItem)
+                .FirstOrDefaultAsync(m => m.RecordId == id);
             if (cart == null)
             {
                 return NotFound();
@@ -147,7 +154,7 @@ namespace Project.Controllers
 
         private bool CartExists(int id)
         {
-            return _context.Carts.Any(e => e.CartId == id);
+            return _context.Carts.Any(e => e.RecordId == id);
         }
     }
 }

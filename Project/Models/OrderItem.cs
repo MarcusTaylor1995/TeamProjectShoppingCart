@@ -11,11 +11,9 @@ namespace Project.Models
     {
         [Key]
         public int OrderItemId { get; set; }
-        [ForeignKey("Product")]
-        public int ProductId { get; set; }
+      
         public Product Product { get; set; }
-        [ForeignKey("Cart")]
-        public int CartId { get; set; }
+       
         public Cart Cart { get; set; }
 
         [Required]
@@ -34,5 +32,9 @@ namespace Project.Models
 
         [Required]
         public string Category { get; set; }
+
+    
+
+      
     }
 }
