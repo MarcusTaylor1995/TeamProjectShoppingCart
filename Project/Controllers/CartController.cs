@@ -57,7 +57,7 @@ namespace Project.Controllers
             else
             {
                 List<OrderItem> cart = SessionHelper.GetObjectFromJson<List<OrderItem>>(HttpContext.Session, "cart").ToList();
-                int index = isExist(id);
+                int index = ItemExists(id);
                 if (index != -1)
                 {
                     cart[index].Quantity = cart[index].Quantity + quantity;
@@ -82,7 +82,7 @@ namespace Project.Controllers
             return RedirectToAction("Index");
         }
 
-        private int isExist([FromForm] int id)
+        private int ItemExists([FromForm] int id)
         {
             List<OrderItem> cart = SessionHelper.GetObjectFromJson<List<OrderItem>>(HttpContext.Session, "cart");
             if (cart == null)
@@ -103,84 +103,13 @@ namespace Project.Controllers
            
         }
 
-     /*   [HttpPost]
-        public IActionResult AddToCart([FromForm] int id, [FromForm] int Quantity)
-        {
-
-            var vm = new ShoppingCartViewModel();
-
-            var cartitem = _context.OrderItems.SingleOrDefault(item => item.OrderItemId == id);
-            vm.CartItems.Add(cartitem);
-
-
-            return RedirectToAction("Index");
-        }
-        */
-       /* [HttpPost]
-        public IActionResult Index([FromForm] int id)
-        {
-            var vm = new ShoppingCartViewModel();
-            var cartitem = _context.OrderItems.SingleOrDefault(item => item.OrderItemId.ToString().Equals(id));
-            vm.CartItems.Add(cartitem);
-
-
-            return View(vm);
-        }
-        */
-
-        /*[HttpPost]
-         * public IActionResult AddtoCart(int id)
-        {
-            var vm = new ShoppingCartViewModel();
-            var cartitem = _context.OrderItems.Single(item => item.OrderItemId == id);
-            vm.CartItems.Add(cartitem);
-            return View(vm);
-        }
-        */
-        /* public IActionResult Index()
-         {
-             var cart = ShoppingCart.GetCart(this.HttpContext);
-
-             var sCVM = new ShoppingCartViewModel
-             {
-                 CartItems = cart.GetCartItems(),
-                 CartTotal = cart.GetTotal()
-             };
-
-             return View(sCVM);
-         }
-         */
-        /* public ActionResult AddToCart(int id)
-         {
-
-             // Retrieve the album from the database
-             var addeditem = _context.OrderItems
-                 .SingleOrDefault(item => item.OrderItemId == id);
-
-             // Add it to the shopping cart
-             var cart = ShoppingCart.GetCart(this.HttpContext);
-
-             cart.AddToCart(addeditem);
-
-             // Go back to the main store page for more shopping
-             return RedirectToAction("Index");
-         }
-         */
-
-        /*public ViewResult AddToCart(int id, string testName)
-        {
-            var vm = new ShoppingCartViewModel();
-            var cartitem = _context.OrderItems.Single(item => item.OrderItemId == id);
-            vm.CartItems.Add(cartitem);
-            return View(vm);
-        }
-        */
+ 
     
         [HttpPost]
         public IActionResult Remove([FromForm] int id)
         {
             List<OrderItem> cart = SessionHelper.GetObjectFromJson<List<OrderItem>>(HttpContext.Session, "cart");
-            int index = isExist(id);
+            int index = ItemExists(id);
             if (index == -2)
             {
                 return RedirectToAction("MainPageView", "Home");

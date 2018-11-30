@@ -34,7 +34,7 @@
                             <br />
                             <ul>
                                 <li id="iname1" class="col-xs-2 ">@item.Name</li>
-                                <li id="price1" class="col-xs-2">$@item.Price</li>
+                                <li id="price1" class="col-xs-2">$@item.Price.00</li>
                                 <li id="quantity1" class="col-xs-2">@item.Quantity <input type="hidden" name="id" value="@item.OrderItemId" /></li>
                                 <li><button type="submit" id="removebutton"> Remove from cart</button></li>
                             </ul>
@@ -48,7 +48,7 @@
     }
 
     <div id="checkoutbox">
-        <h4>Subtotal: <b id="cart-total">@ViewBag.total</b></h4>
+        <h4>Subtotal: <b id="cart-total">$@ViewBag.total.00</b></h4>
         <input id="checkoutbutton" type="button" value="Checkout" />
     </div>
 }
