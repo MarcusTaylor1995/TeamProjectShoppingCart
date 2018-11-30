@@ -33,12 +33,14 @@
                 <div class="itemdescription col-xs-9">
                     <ul>
                         <li id="iname">@item.Name </li>
-
+                        <li><hr /></li>
                         <li id="idescrip">
                             <p>@item.Description</p>
                             <input type="hidden" name="id" value="@item.OrderItemId" />
                         </li>
-                        <li id="iprice">$@String.Format("{0:F}", item.Price) <input id="quantityinput" name="quantity" type="number" min="1" max="100" value="1" /> <button id="cartbutton" type="submit"> Add to Cart </button>
+                        <li>Quantity: <input id="quantityinput" name="quantity" type="number" min="1" max="100" value="1" /></li>
+                        <li id="iprice">
+                            $@String.Format("{0:F}", item.Price) <button id="cartbutton" type="submit"> Add to Cart </button>
                         </li>
                     </ul>
                 </div>

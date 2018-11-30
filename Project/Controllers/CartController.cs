@@ -85,14 +85,22 @@ namespace Project.Controllers
         private int isExist([FromForm] int id)
         {
             List<OrderItem> cart = SessionHelper.GetObjectFromJson<List<OrderItem>>(HttpContext.Session, "cart");
-            for (int i = 0; i < cart.Count; i++)
+            if (cart == null)
+                return -2;
+            else
             {
-                if (cart[i].OrderItemId == id)
+                for (int i = 0; i < cart.Count; i++)
                 {
-                    return i;
+                    if (cart[i].OrderItemId == id)
+                    {
+                        return i;
+                    }
                 }
+
+
+                return -1;
             }
-            return -1;
+           
         }
 
      /*   [HttpPost]
@@ -167,30 +175,23 @@ namespace Project.Controllers
             return View(vm);
         }
         */
+    
         [HttpPost]
-        public ActionResult RemoveFromCart(int id)
+        public IActionResult Remove([FromForm] int id)
         {
-            // Remove the item from the cart
-            var cart = ShoppingCart.GetCart(this.HttpContext);
-
-            // Get the name of the album to display confirmation
-            string albumName = _context.Carts
-                 .Single(item => item.RecordId == id).OrderItem.Name;
-
-            // Remove from cart
-            int itemCount = cart.RemoveFromCart(id);
-
-            // Display the confirmation message
-            var results = new ShoppingCartRemoveViewModel
+            List<OrderItem> cart = SessionHelper.GetObjectFromJson<List<OrderItem>>(HttpContext.Session, "cart");
+            int index = isExist(id);
+            if (index == -2)
             {
-                Message =
-                    " has been removed from your shopping cart.",
-                CartTotal = cart.GetTotal(),
-                CartCount = cart.GetCount(),
-                ItemCount = itemCount,
-                DeleteId = id
-            };
-            return Json(results);
+                return RedirectToAction("MainPageView", "Home");
+            }
+            else
+            {
+                cart.RemoveAt(index);
+                SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
+                return RedirectToAction("Index");
+            }
         }
+
     }
 }

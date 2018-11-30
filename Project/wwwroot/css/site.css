@@ -222,7 +222,7 @@ body {
 }
 .itemimage .itemdescription {
     max-height: 250px;
-    overflow-y: scroll;
+    overflow-y: no-display;
 }
 
 .itemdescription ul{
@@ -237,8 +237,9 @@ body {
 
 .itemdescription #iname {
     text-align: center;
-    font-size: 14pt;
+    font-size: 16pt;
     font-weight: bold;
+    margin: 0;
 }
 .itemdescription #iprice {
     font-weight: bold;
@@ -246,8 +247,9 @@ body {
 }
 
 .itemdescription #idescrip{
-    font-size: 12pt;
-    height: 125px;
+    font-size: 14pt;
+    height: 90px;
+    margin-bottom: 5px;
 }
 .hrline {
     width: 95%;
@@ -434,16 +436,16 @@ body {
 #price1 {
     display:inline-block;
     text-align: center;
-    margin-left: 11%;
+    margin-left: 8%;
 }
 
 #priceheading {
     display: inline-block;
-    margin-left: 13%;
+    margin-left: 11%;
 }
 #quantityheading {
     display: inline-block;
-    margin-left: 30%;
+    margin-left: 8%;
 }
 .itemdescription #iname1 {
     display:inline-block;
@@ -451,7 +453,7 @@ body {
 }
 #quantity1 {
     display: inline-block;
-    margin-left: 35%;
+    margin-left: 14%;
     
 }
 #nameheading{
@@ -493,4 +495,24 @@ body {
     #checkoutbutton:hover {
         background-color: #FE9000;
         cursor: pointer;
+    }
+
+ #removebutton{
+     background-color: white;
+     border: none;
+     text-decoration: underline;
+     float: right;
+ }
+
+    #removebutton:hover {
+        color: #FDC97E;
+    }
+
+#continueshop {
+    color: black;
+    font-size: 15pt;
+    text-decoration: underline;
+}
+    #continueshop:hover {
+        color: #FDC97E;
     }
