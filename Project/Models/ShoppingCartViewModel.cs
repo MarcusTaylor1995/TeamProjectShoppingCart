@@ -7,7 +7,11 @@ namespace Project.Models
 {
     public class ShoppingCartViewModel
     {
-        public List<OrderItem> CartItems { get; set; }
+        public ShoppingCartViewModel()
+        {
+            this.OrdersList = new List<Order>();
+        }
+        public List<Order> OrdersList { get; set; }
 
         public decimal CartTotal { get; set; }
         

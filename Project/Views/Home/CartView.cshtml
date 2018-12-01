@@ -43,29 +43,7 @@
         </div>
     </div>
 </div>
-@foreach (var item in Model.CartItems)
-{
-<div class="around1">
-    <div class="row" id="row-@item.OrderItemId">
-        <div class="col-xs-12">
-            <div class="itemimage1 col-xs-2 ">
-                <img id="item1" src="@Url.Content("~/Images/soccerball.png")" alt="Soccer Ball" />
-            </div>
-            <div class="itemdescription col-xs-9">
-                <br />
-                <ul>
-                    <li id="iname1" class="col-xs-2 ">@item.Name,</li>
-                    <li id="price1" class="col-xs-2">@item.Price</li>
-                    <li id="item-count-@item.OrderItemId" class="col-xs-2">@item.Quantity</li>
-                    <li><a href="#" class="RemoveLink" data-id="@item.OrderItemId"> Remove from cart</a></li>
-                </ul>
-            </div>
-            <br />
-        </div>
-    </div>
 
-</div>
-}
 <div class="around2">
     <div class="row">
         <div class="col-xs-12">

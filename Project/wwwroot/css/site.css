@@ -516,3 +516,67 @@ body {
     #continueshop:hover {
         color: #FDC97E;
     }
+#orderlist {
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #e9e3e3;
+    border-width: .5px;
+    text-align: center;
+    margin: auto;
+    height: auto;
+    width: 300px;
+}
+#orderheading {
+    margin: auto;
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 15px;
+    color: #555;
+}
+#exit {
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 25%;
+    float: none;
+    text-align: center;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: .5px;
+    border-color: #f5cf98;
+    width: auto;
+    height: auto;
+}
+
+#logo1 {
+    display: inline-block;
+    float: left;
+    margin-right: 0;
+}
+#eachorder {
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #e9e3e3;
+    border-width: .5px;
+    background-color: #f2eeee;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    text-align: center;
+    margin: auto;
+    margin-top: 4px;
+    height: auto;
+    width: 300px;
+}
+.categoryheading {
+    font-family: 'Crete Round, Arial';
+    font-size: 20pt;
+    color: #555;
+    text-align: left;
+}
+
+#empty{
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 16pt;
+}

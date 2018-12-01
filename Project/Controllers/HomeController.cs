@@ -52,7 +52,6 @@ namespace Project.Controllers
            
 
             OrderItemViewModel model = new OrderItemViewModel();
-            
             var items = _context.OrderItems;
             model.OrderItems.AddRange(items);
 

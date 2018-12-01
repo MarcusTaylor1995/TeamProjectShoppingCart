@@ -1,0 +1,22 @@
+﻿@model Project.Models.ShoppingCartViewModel 
+@{
+    ViewData["Title"] = "OrderHistory";
+
+}
+
+<h2 id="orderheading">Store Order History</h2>
+
+    @{
+        int i = 0;
+        foreach (Order order in Model.OrdersList)
+        {
+            i = i + 1;
+    <div id="eachorder">
+        <p style="font-size:14pt">Order @i </p>
+        <p><i>This Order Total Price was $@order.Total</i></p>
+        <hr />
+    </div>
+        }
+    }
+
+

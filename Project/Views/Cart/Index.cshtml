@@ -3,7 +3,7 @@
     ViewData["Title"] = "CartView";
 }
 <br />
-<h3>Shopping Cart</h3>
+<h3 class="categoryheading">Shopping Cart</h3>
 
 @if (ViewBag.cart != null && ViewBag.cart.Count != 0)
 {
@@ -46,15 +46,19 @@
             </div>
         </form>
     }
-
-    <div id="checkoutbox">
-        <h4>Subtotal: <b id="cart-total">$@ViewBag.total.00</b></h4>
-        <input id="checkoutbutton" type="button" value="Checkout" />
-    </div>
+        <form asp-action="Checkout" asp-controller="Cart" method="post">
+            <div id="checkoutbox">
+                <h4>Subtotal: <b id="cart-total">$@ViewBag.total.00</b></h4>
+                <input id="checkoutbutton" type="submit" value="Checkout" />
+            </div>
+            <input type="hidden" name="total" value="@ViewBag.total" />
+        </form>
 }
 else
 {
-    <p>Cart is empty</p>
+        <div id="empty">
+            <p>Your Cart is Empty <img src="@Url.Content("~/Images/shoppingcart.png")" alt="Cart Picture" /></p>
+        </div>
 }
 <a asp-controller="Home" asp-action="MainPageView" id="continueshop">Continue Shopping</a>
 

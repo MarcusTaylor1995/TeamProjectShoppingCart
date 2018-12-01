@@ -13,6 +13,7 @@ using Project.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Project.Models;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Project
 {
@@ -24,7 +25,7 @@ namespace Project
         }
 
         public IConfiguration Configuration { get; }
-
+     
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -41,8 +42,12 @@ namespace Project
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<Cart>();
             services.AddDistributedMemoryCache();
+            services.AddSession();
+            services.AddMvc();
+
 
             services.AddSession(options =>
             {
